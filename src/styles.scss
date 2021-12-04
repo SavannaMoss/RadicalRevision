@@ -2,3 +2,17 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+h6 {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.largeFont {
+  font-size: large;
+}
+
+.customCard {
+  width: 18rem;
+  display: inline-block;
+}

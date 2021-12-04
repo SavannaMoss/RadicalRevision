@@ -1,26 +1,35 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+// MODULES
+import { NgModule }                       from '@angular/core';
+import { BrowserModule }                  from '@angular/platform-browser';
+import { NgbModule }                      from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule }               from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { AppRoutingModule }               from './app-routing.module';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './components/header/header.component';
+// SERVICES
+import { InMemoryDataService } from "./services/in-memory-data.service";
+
+// COMPONENTS
+import { AppComponent }       from './app.component';
 import { DirectoryComponent } from './components/directory/directory.component';
-import { DetailsComponent } from './components/details/details.component';
+import { DetailsComponent }   from './components/details/details.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     DirectoryComponent,
     DetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

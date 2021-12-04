@@ -1,8 +1,8 @@
-<div class="modal-header">
-  <h4 class="modal-title">Hi there!</h4>
+<div class="modal-header py-2">
+  <h4 class="modal-title">{{ character.name }}</h4>
   <button
     type="button"
-    class="close"
+    class="close align-self-end m-0 my-auto p-0"
     aria-label="Close"
     (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
@@ -10,13 +10,58 @@
 </div>
 
 <div class="modal-body">
-  <p>Hello, {{ name }}</p>
+  <div>
+    <div class="row align-items-center">
+      <div class="col-8">
+        <img
+          [src]="imgRoot + character.img_src"
+          alt="Character image: {{ character.name }}"
+          style="width: 100%;">
+      </div>
+
+      <div class="col-4">
+        <div class="row">
+
+          <div class="col-12 my-2">
+            <div class="row justify-content-center largeFont">
+              <u>Gender</u>
+            </div>
+            <div class="row justify-content-center">
+              {{ character.gender }}
+            </div>
+          </div>
+
+          <div class="col-12 my-2">
+            <div class="row justify-content-center largeFont">
+              <u>Sexuality</u>
+            </div>
+            <div class="row justify-content-center">
+              {{ character.sexuality }}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <h6 class="mt-3">{{ character.show }}</h6>
+
+  <p class="m-0">{{ character.about }}</p>
+
 </div>
 
 <div class="modal-footer">
+  <a
+    class="btn btn-outline-dark"
+    href="{{ character.link }}"
+    target="_blank">
+    Wiki Page
+  </a>
   <button
     type="button"
-    class="btn btn-outline-dark"
+    class="btn btn-dark float-right"
     (click)="activeModal.close('Close click')">
     Close
   </button>

@@ -1,4 +1,5 @@
 export interface Character {
+  id: number;
   name: string;
   show: string;
   gender: string;
@@ -7,4 +8,5 @@ export interface Character {
   ethnicity: string;
   about: string;
   link: string;
+  img_src: string;
 }
