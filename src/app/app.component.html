@@ -4,23 +4,29 @@
        class="navbar-brand"
        style="height: 40px;">
 
-  <p class="navbar-brand m-0 d-none d-md-block">A Guide to the CW's Queer Characters</p>
+  <p class="navbar-brand m-0 d-none d-md-block">A Incomplete Guide to the CW's Queer Characters</p>
 
   <ul class="navbar-nav ml-auto">
     <li class="nav-item" ngbDropdown>
       <a class="btn btn-outline-light" ngbDropdownToggle id="navbarDropdown" role="button">
       </a>
       <div ngbDropdownMenu aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
+        <a ngbDropdownItem (click)="directoryComponent.getCharacters()">View All</a>
         <a ngbDropdownItem (click)="this.filter = 'sexuality=Lesbian'">Lesbian</a>
         <a ngbDropdownItem (click)="this.filter = 'sexuality=Gay'">Gay</a>
         <a ngbDropdownItem (click)="this.filter = 'sexuality=Bisexual'">Bisexual</a>
         <a ngbDropdownItem (click)="this.filter = 'gender=Transgender'">Transgender</a>
         <a ngbDropdownItem (click)="this.filter = 'sexuality=Queer|gender=Queer'">Queer</a>
+        <a ngbDropdownItem (click)="this.filter = 'sexuality=Asexual'">Asexual</a>
+        <a ngbDropdownItem (click)="this.filter = 'sexuality=Pansexual'">Pansexual</a>
       </div>
     </li>
   </ul>
 </nav>
 
 <div class="container">
-  <app-directory [filter]="filter"></app-directory>
+  <app-directory
+    #directoryComponent
+    [filter]="filter">
+  </app-directory>
 </div>

@@ -28,7 +28,6 @@ export class DirectoryComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(): void {
     this.filterCharacters();
-    console.log(this.filter);
   }
 
   ngOnDestroy() {
@@ -43,11 +42,17 @@ export class DirectoryComponent implements OnInit, OnChanges, OnDestroy {
 
   getCharacters() {
     this.subscription = this.dataService.getCharacters()
-      .subscribe(results => this.characters = results);
+      .subscribe(results => {
+        this.characters = results;
+        this.characters.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      });
   }
 
   filterCharacters() {
     this.subscription = this.dataService.filterCharacters(this.filter)
-      .subscribe(results => this.characters = results);
+      .subscribe(results => {
+        this.characters = results;
+        this.characters.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      });
   }
 }

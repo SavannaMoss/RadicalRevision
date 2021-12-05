@@ -25,7 +25,7 @@ import { DetailsComponent }   from './components/details/details.component';
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 100}),
     AppRoutingModule
   ],
   providers: [],
